@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadin Rahmawati | Portofolio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome untuk Icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-rose: #fce7f3;
+            --dark-rose: #be185d;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fffafb;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Animasi Kelopak Bunga (Sakura Petals) */
+        .flower-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .petal {
+            position: absolute;
+            background-color: #ffc0cb;
+            border-radius: 150% 0 150% 0;
+            opacity: 0.6;
+            filter: blur(0.5px);
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translate(0, -10px) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translate(120px, 100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(251, 207, 232, 0.4);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #fff1f2 0%, #fce7f3 100%);
+        }
+
+        .img-container {
+            background: #fdf2f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid #fbcfe8;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #db2777;
+            border: 4px solid #fff;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fffafb; }
+        ::-webkit-scrollbar-thumb { background: #fbcfe8; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #db2777; }
+
+        /* Animation class for sections */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Animasi Latar Belakang Kelopak Bunga -->
+    <div class="flower-container" id="flowerContainer"></div>
+
+    <!-- Navigasi -->
+    <nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center glass-card shadow-sm">
+        <div class="text-2xl font-serif font-bold text-pink-700 tracking-tight">Nadin.</div>
+        <div class="hidden md:flex space-x-8 font-medium">
+            <a href="#home" class="hover:text-pink-600 transition">Beranda</a>
+            <a href="#about" class="hover:text-pink-600 transition">Tentang</a>
+            <a href="#education" class="hover:text-pink-600 transition">Pendidikan</a>
+            <a href="#contact" class="hover:text-pink-600 transition">Kontak</a>
+        </div>
+        <div class="md:hidden text-pink-700 text-xl">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center px-6 pt-20 hero-gradient relative overflow-hidden">
+        <div class="z-20 text-center max-w-4xl">
+            <div class="mb-8 relative inline-block reveal">
+                <!-- Foto Profil -->
+                <div class="w-52 h-52 md:w-72 md:h-72 rounded-full border-8 border-white shadow-2xl overflow-hidden mx-auto transition-transform hover:scale-105 duration-500 img-container">
+                    <img src="https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410032/1770622276_fae72ecf.jpg" 
+                         alt="Nadin Rahmawati" 
+                         onerror="this.src='https://ui-avatars.com/api/?name=Nadin+Rahmawati&background=fce7f3&color=be185d&size=512'"
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="absolute -top-4 -right-4 text-pink-400 text-5xl animate-bounce">🌸</div>
+                <div class="absolute -bottom-2 -left-4 text-pink-300 text-4xl animate-pulse">✨</div>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold text-slate-900 mb-4 tracking-tight reveal">Nadin <span class="text-pink-600">Rahmawati</span></h1>
+            <p class="text-xl md:text-2xl text-slate-600 mb-8 italic font-serif reveal">"Ketelitian dalam angka, keindahan dalam karya."</p>
+            
+            <div class="flex gap-4 justify-center reveal">
+                <a href="#about" class="bg-pink-600 text-white px-8 py-3 rounded-full hover:bg-pink-700 transition-all shadow-lg hover:shadow-pink-200">Tentang Saya</a>
+                <a href="#contact" class="bg-white text-pink-600 border border-pink-200 px-8 py-3 rounded-full hover:bg-pink-50 transition-all">Hubungi</a>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
+    </section>
+
+    <!-- Tentang Saya -->
+    <section id="about" class="py-24 px-6 bg-white reveal">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold text-slate-800 mb-2">Siapa Saya?</h2>
+            <div class="h-1 w-20 bg-pink-500 mx-auto mb-10 rounded-full"></div>
+            
+            <p class="text-lg md:text-xl text-slate-600 leading-relaxed mb-12">
+                Halo! Saya adalah seorang pelajar berusia 17 tahun yang memiliki minat besar dalam dunia <span class="font-bold text-slate-900 underline decoration-pink-300">Akuntansi</span>. Saya berdedikasi untuk memberikan hasil kerja yang teliti, jujur, dan profesional dalam setiap tanggung jawab yang diberikan.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <div class="p-6 rounded-3xl bg-pink-50 border border-pink-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-pink-600 mb-4 shadow-sm">
+                        <i class="fas fa-calculator text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-lg mb-2">Akuntansi & Keuangan</h4>
+                    <p class="text-slate-500 text-sm">Fokus pada pembukuan, penjurnalan, dan pengelolaan laporan keuangan dasar secara akurat.</p>
+                </div>
+                <div class="p-6 rounded-3xl bg-pink-50 border border-pink-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-pink-600 mb-4 shadow-sm">
+                        <i class="fas fa-user-check text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-lg mb-2">Kedisiplinan</h4>
+                    <p class="text-slate-500 text-sm">Berkomitmen pada manajemen waktu dan tanggung jawab penuh dalam setiap tugas administrasi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pendidikan -->
+    <section id="education" class="py-24 px-6 bg-pink-50/30 reveal">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-slate-800 mb-12 text-center font-serif">Pendidikan</h2>
+            
+            <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-sm border border-pink-100">
+                <div class="timeline-item">
+                    <span class="text-pink-600 font-bold text-sm bg-pink-50 px-3 py-1 rounded-full">2023 - 2026</span>
+                    <h4 class="font-bold text-slate-900 text-xl mt-2 uppercase">SMK Al-Irsyad Al-Islamiyyah Haurgeulis</h4>
+                    <p class="text-slate-500 italic">Konsentrasi Keahlian: Akuntansi</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="text-pink-600 font-bold text-sm bg-pink-50 px-3 py-1 rounded-full">2020 - 2023</span>
+                    <h4 class="font-bold text-slate-900 text-xl mt-2 uppercase">SMP Negeri 3 Gantar</h4>
+                </div>
+                
+                <div class="timeline-item mb-0">
+                    <span class="text-pink-600 font-bold text-sm bg-pink-50 px-3 py-1 rounded-full">2014 - 2020</span>
+                    <h4 class="font-bold text-slate-900 text-xl mt-2 uppercase">SD Negeri Cadasngampar</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact" class="py-24 px-6 bg-white reveal">
+        <div class="max-w-4xl mx-auto glass-card p-8 md:p-12 rounded-[3rem] shadow-2xl border-pink-100">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-slate-800 mb-6 font-serif">Mari Terhubung</h2>
+                    <p class="text-slate-500 mb-10 leading-relaxed">Saya sangat terbuka untuk berdiskusi mengenai peluang karir, magang, atau kolaborasi di bidang keuangan.</p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-center space-x-5">
+                            <div class="w-14 h-14 bg-pink-100 rounded-2xl flex-shrink-0 flex items-center justify-center text-pink-600 shadow-inner">
+                                <i class="fas fa-envelope text-lg"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="text-xs text-slate-400 font-bold uppercase tracking-widest">Email</p>
+                                <p class="font-semibold text-slate-700 break-all">nadinrahmawati99@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-5">
+                            <div class="w-14 h-14 bg-pink-100 rounded-2xl flex-shrink-0 flex items-center justify-center text-pink-600 shadow-inner">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-bold uppercase tracking-widest">Instagram</p>
+                                <p class="font-semibold text-slate-700">@nadin.rahmawati</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Kontak Form Mockup -->
+                <div class="bg-pink-50/50 p-6 rounded-3xl border border-pink-100">
+                    <div class="space-y-4">
+                        <input type="text" placeholder="Nama Anda" class="w-full p-4 rounded-xl bg-white border border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 transition">
+                        <textarea placeholder="Pesan" rows="4" class="w-full p-4 rounded-xl bg-white border border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 transition"></textarea>
+                        <button class="w-full bg-pink-600 text-white py-4 rounded-xl font-bold hover:bg-pink-700 transition transform hover:scale-[1.02] shadow-lg shadow-pink-200">
+                            Kirim Pesan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-slate-900 text-white text-center">
+        <div class="text-4xl font-serif font-bold text-pink-500 mb-6">Nadin.</div>
+        <div class="flex justify-center space-x-6 mb-8 text-slate-400">
+            <a href="#" class="hover:text-pink-500 transition text-xl"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="hover:text-pink-500 transition text-xl"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="hover:text-pink-500 transition text-xl"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="border-t border-slate-800 pt-10 px-6 max-w-2xl mx-auto">
+            <p class="text-slate-500 text-xs uppercase tracking-[0.3em]">
+                &copy; 2026 Portofolio Nadin Rahmawati.
+            </p>
+            <p class="text-slate-600 text-[10px] mt-2 tracking-widest">
+                SMK AL-IRSYAD AL-ISLAMIYYAH HAURGEULIS
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Inisialisasi Kelopak Bunga Sakura yang Jatuh
+        const container = document.getElementById('flowerContainer');
+        const petalCount = 20;
+        const colors = ['#ffc0cb', '#ffe4e1', '#fff0f5', '#db7093', '#ffb7c5'];
+
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            
+            const size = Math.random() * 15 + 8 + 'px';
+            const left = Math.random() * 100 + 'vw';
+            const duration = Math.random() * 8 + 5 + 's';
+            const delay = Math.random() * 5 + 's';
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            petal.style.width = size;
+            petal.style.height = size;
+            petal.style.left = left;
+            petal.style.backgroundColor = color;
+            petal.style.animationDuration = duration;
+            petal.style.animationDelay = delay;
+            petal.style.borderRadius = Math.random() > 0.5 ? '150% 0 150% 0' : '50% 50% 50% 50%';
+            
+            container.appendChild(petal);
+
+            // Bersihkan petal lama untuk menjaga performa
+            setTimeout(() => {
+                petal.remove();
+                createPetal();
+            }, (parseFloat(duration) + parseFloat(delay)) * 1000);
+        }
+
+        // Mulai animasi
+        window.addEventListener('load', () => {
+            for (let i = 0; i < petalCount; i++) {
+                setTimeout(createPetal, i * 400);
+            }
+
+            // Scroll Reveal Animation Logic
+            const reveal = () => {
+                const reveals = document.querySelectorAll('.reveal');
+                reveals.forEach(element => {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    if (elementTop < windowHeight - elementVisible) {
+                        element.classList.add('active');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', reveal);
+            reveal(); // Cek posisi saat awal loading
+        });
+
+        // Mobile Menu Toggle (Simple Placeholder)
+        document.querySelector('.fa-bars').parentElement.addEventListener('click', () => {
+            alert("Terima kasih sudah berkunjung! Navigasi mobile sedang dalam pengembangan.");
+        });
+    </script>
+</body>
+</html>
+
